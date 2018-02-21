@@ -1,6 +1,6 @@
 class Cods < Formula
   desc 'COdeup Deployment Scripts'
-  version '0.1.0'
+  version '0.1.1'
   url 'https://github.com/zgulde/cods.git'
   head 'https://github.com/zgulde/cods.git', :branch => 'develop'
 
