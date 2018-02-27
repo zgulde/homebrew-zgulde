@@ -14,6 +14,7 @@ class Cods < Formula
     bin.install 'bin/init.sh' => 'cods'
     prefix.install 'server'
     prefix.install 'scripts'
+    prefix.install 'CHANGELOG.md' # this contains version information
     prefix.install 'templates'
   end
 end
