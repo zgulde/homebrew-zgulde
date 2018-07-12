@@ -1,8 +1,8 @@
 class Cods < Formula
   desc 'COdeup Deployment Scripts'
-  version '2.1.0'
-  url 'https://github.com/zgulde/cods/archive/v2.1.0.tar.gz'
-  sha256 '29bec535d9dbbc3808ae5c7952ec75039fd1c4caf96dbc1374d16eaff828a329'
+  version '2.1.1'
+  url 'https://github.com/zgulde/cods/archive/v2.1.1.tar.gz'
+  sha256 'e7a7794e7e8480ea62f54134e0fa13d342ffbcfc0c55b299a3b20e43ab262248'
 
   head 'https://github.com/zgulde/cods.git', :branch => 'develop'
   devel do
