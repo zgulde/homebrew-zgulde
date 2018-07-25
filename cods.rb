@@ -11,10 +11,11 @@ class Cods < Formula
   end
 
   def install
-    bin.install 'bin/init.sh' => 'cods'
+    bin.install 'bin/cods.sh' => 'cods'
     prefix.install 'server'
     prefix.install 'scripts'
-    prefix.install 'CHANGELOG.md' # this contains version information
     prefix.install 'templates'
+    prefix.install 'bin'
+    prefix.install 'CHANGELOG.md' # this contains version information
   end
 end
