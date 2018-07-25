@@ -1,0 +1,41 @@
+---
+- name: Release A New Version of Cods
+  gather_facts: false
+  hosts: 127.0.0.1
+  vars:
+    github_download_url: "https://github.com/zgulde/cods/archive/{{ cods_version }}.tar.gz"
+    cods_tgz: "cods_{{ cods_version }}.tar.gz"
+  vars_prompt:
+    - name: cods_version
+      prompt: Version
+      private: no
+  pre_tasks:
+    - assert:
+        that:
+          - cods_version is defined
+          - cods_version != ''
+          - cods_version | regex_search('^v\d+\.\d+\.\d+')
+  tasks:
+    - name: Download Cods {{ cods_version }}
+      get_url:
+        url: "{{ github_download_url }}"
+        dest: "./{{ cods_tgz }}"
+    - name: Obtain sha256sum For {{ cods_version }}
+      shell: sha256sum {{ cods_tgz }}
+      register: shasum
+    - name: Update Homebrew Formula
+      lineinfile:
+        path: cods.rb
+        regexp: "{{ item.re }}"
+        line: "{{ item.line }}"
+      with_items:
+        - { re: '^  version', line: "  version '{{ cods_version.split('v')[1] }}'" }
+        - { re: '^  sha256',  line: "  sha256 '{{ shasum.stdout.split(' ')[0] }}'" }
+        - { re: '^  url',     line: "  url '{{ github_download_url }}'" }
+    - name: Add and Commit Changes
+      shell: "git add cods.rb && git commit -m 'Release cods {{ cods_version }}'"
+    - name: Clean Up
+      file:
+        path: "{{ cods_tgz }}"
+        state: absent
+
