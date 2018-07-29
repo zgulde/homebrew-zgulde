@@ -12,7 +12,6 @@ class Cods < Formula
 
   def install
     bin.install 'bin/cods.sh' => 'cods'
-    prefix.install 'server'
     prefix.install 'scripts'
     prefix.install 'templates'
     prefix.install 'bin'
