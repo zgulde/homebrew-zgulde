@@ -4,6 +4,9 @@ class Cods < Formula
   url 'https://github.com/zgulde/cods/archive/v2.2.3.tar.gz'
   sha256 'aed1ab7ad7607d63903176c71e52f17e9a512ff8e45b5aa45bccdca1eab8243d'
 
+  depends_on 'python'
+  depends_on 'perl'
+
   head 'https://github.com/zgulde/cods.git', :branch => 'master'
 
   def install
