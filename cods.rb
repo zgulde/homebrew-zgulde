@@ -1,8 +1,8 @@
 class Cods < Formula
   desc 'COdeup Deployment Scripts'
-  version '3.0.2'
-  url 'https://github.com/zgulde/cods/archive/v3.0.2.tar.gz'
-  sha256 'ecd4325f279998f63c69a4a0f4de6639b1069c4324898c32cc71a856feb7687e'
+  version '3.0.3'
+  url 'https://github.com/zgulde/cods/archive/v3.0.3.tar.gz'
+  sha256 '280f5226782fd44e291b0a1afd9b67d55b7e1855fa0a8f2da5bdd97894dd9018'
 
   depends_on 'python'
   depends_on 'perl'
